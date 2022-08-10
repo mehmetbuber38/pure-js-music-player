@@ -1,0 +1,111 @@
+.c-card {
+    background: linear-gradient(180deg, #5e5a4f 0%, #35322d 69.27%, #33312c 95.31%);
+    border-radius: 25px;
+    padding: 1.625rem;
+
+    @media (min-width: 768px) {
+        width: 450px;
+    }
+
+    &__cover {
+        max-width: 390px;
+        max-height: 300px;
+        width: 100%;
+        object-fit: cover;
+        margin-bottom: 2.875rem;
+    }
+
+    &__info {
+        margin-bottom: 36px;
+    }
+
+    &__title {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.5rem;
+        letter-spacing: -0.03em;
+        color: #ffffff;
+        margin-bottom: 0.35rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__artist {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1.25rem;
+        line-height: 0.75rem;
+        letter-spacing: -0.03em;
+        color: #b8b7b5;
+    }
+
+    &__times {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__current-time,
+    &__duration {
+        color: #ffffff;
+    }
+
+    &__footer {
+        margin-top: 1.5rem;
+    }
+
+    &__volume-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        i {
+            color: white;
+            margin-right: 8px;
+        }
+    }
+
+    &__list {
+        margin: 25px 0 0 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__list-item {
+        display: flex;
+        padding: 15px 5px;
+        color: #b9b9b9;
+
+        &.playing {
+            color: #fff;
+        }
+    }
+
+    &__list-item-img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        margin-right: 15px;
+    }
+
+    &__list-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex: 1;
+
+        span {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    &__list-info-name {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 275px;
+    }
+}
