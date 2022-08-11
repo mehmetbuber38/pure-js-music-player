@@ -1,17 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap");
 .c-card {
-  background: -webkit-gradient(linear, left top, left bottom, from(#5e5a4f), color-stop(69.27%, #35322d), color-stop(95.31%, #33312c));
   background: linear-gradient(180deg, #5e5a4f 0%, #35322d 69.27%, #33312c 95.31%);
   border-radius: 25px;
   padding: 1.625rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  transition: all 0.4s ease-in-out;
 }
-
 @media (min-width: 768px) {
   .c-card {
     width: 450px;
   }
 }
-
+.c-card__lyrics {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+.c-card__lyrics i {
+  color: white;
+  font-size: 21px;
+}
+.c-card__lyrics:hover {
+  color: white;
+  opacity: 0.8;
+}
 .c-card__cover {
   max-width: 390px;
   max-height: 300px;
@@ -19,12 +32,11 @@
   -o-object-fit: cover;
      object-fit: cover;
   margin-bottom: 2.875rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
 }
-
 .c-card__info {
   margin-bottom: 36px;
 }
-
 .c-card__title {
   font-style: normal;
   font-weight: 700;
@@ -36,71 +48,51 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 .c-card__artist {
   font-style: normal;
   font-weight: 500;
   font-size: 1.25rem;
   line-height: 0.75rem;
   letter-spacing: -0.03em;
-  color: #b8b7b5;
+  color: #393836;
 }
-
 .c-card__times {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
 }
-
 .c-card__current-time, .c-card__duration {
   color: #ffffff;
 }
-
 .c-card__footer {
   margin-top: 1.5rem;
 }
-
 .c-card__volume-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
 }
-
 .c-card__volume-container i {
   color: white;
   margin-right: 8px;
 }
-
 .c-card__list {
   margin: 25px 0 0 0;
   padding: 0;
   list-style: none;
 }
-
 .c-card__list-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   padding: 15px 5px;
-  color: #b9b9b9;
+  color: #888888;
+  transition: all 0.3s ease-in-out;
 }
-
 .c-card__list-item.playing {
   color: #fff;
 }
-
+.c-card__list-item:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
 .c-card__list-item-img {
   width: 40px;
   height: 40px;
@@ -108,28 +100,17 @@
      object-fit: cover;
   margin-right: 15px;
 }
-
 .c-card__list-info {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
 }
-
 .c-card__list-info span {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 .c-card__list-info-name {
   white-space: nowrap;
   overflow: hidden;
@@ -145,8 +126,7 @@
   outline: none;
   border-radius: 15px;
   overflow: hidden;
-  -webkit-box-shadow: inset 0 0 5px black;
-          box-shadow: inset 0 0 5px black;
+  box-shadow: inset 0 0 5px rgb(0, 0, 0);
 }
 
 .range::-webkit-slider-thumb {
@@ -154,31 +134,92 @@
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background: #5b5b5b;
+  background: rgb(91, 91, 91);
   cursor: pointer;
   border: 4px solid white;
-  -webkit-box-shadow: -407px 0 0 400px white;
-          box-shadow: -407px 0 0 400px white;
+  box-shadow: -407px 0 0 400px white;
+}
+
+.lyrics {
+  position: fixed;
+  inset: 0 0 0 0;
+  background: linear-gradient(180deg, #484c4d 25%, #121212 45.06%, #121212 95.31%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: break-spaces;
+  color: #fff;
+  overflow: auto;
+}
+.lyrics p {
+  text-align: center;
+}
+.lyrics__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 0 15px 0;
+  border-bottom: 1px solid #fff;
+}
+.lyrics__header-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+.lyrics__image {
+  width: 220px;
+  height: 220px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.lyrics__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 25px;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lyrics__close i {
+  font-size: 32px;
+  color: #fff;
 }
 
 body {
   font-family: "Poppins";
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
-  background: -webkit-gradient(linear, left top, left bottom, from(#484c4d), color-stop(39.06%, #121212), color-stop(95.31%, #121212));
   background: linear-gradient(180deg, #484c4d 0%, #121212 39.06%, #121212 95.31%);
+  background-size: 400% 400%;
 }
 
 p {
   margin-top: 0;
   margin-bottom: 0;
 }
-/*# sourceMappingURL=main.css.map */
+
+.homepage-linkedin {
+  background: rgb(213, 210, 210);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 5px;
+  border-radius: 8px;
+  position: fixed;
+  inset: auto 25px 25px auto;
+  color: #000;
+  text-decoration: none;
+  font-size: large;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  zoom: 0.8;
+}
+.homepage-linkedin img {
+  margin-bottom: 15px;
+  width: 30px;
+}/*# sourceMappingURL=main.css.map */

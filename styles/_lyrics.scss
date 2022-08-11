@@ -1,0 +1,58 @@
+.lyrics {
+  position: fixed;
+  inset: 0 0 0 0;
+  background: linear-gradient(
+    180deg,
+    #484c4d 25%,
+    #121212 45.06%,
+    #121212 95.31%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: break-spaces;
+  color: #fff;
+  overflow: auto;
+
+  p {
+    text-align: center;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 0 15px 0;
+    border-bottom: 1px solid #fff;
+  }
+
+  &__header-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+  }
+
+  &__image {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+  }
+
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    i {
+      font-size: 32px;
+      color: #fff;
+    }
+  }
+}

@@ -1,17 +1,45 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap");
-@import "c-card";
-@import "c-range";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+@import 'c-card';
+@import 'c-range';
+@import 'lyrics';
 
 body {
-    font-family: "Poppins";
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background: linear-gradient(180deg, #484c4d 0%, #121212 39.06%, #121212 95.31%);
+  font-family: 'Poppins';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(
+    180deg,
+    #484c4d 0%,
+    #121212 39.06%,
+    #121212 95.31%
+  );
+  background-size: 400% 400%;
 }
 
 p {
-    margin-top: 0;
-    margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.homepage-linkedin {
+  background: rgb(213, 210, 210);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 5px;
+  border-radius: 8px;
+  position: fixed;
+  inset: auto 25px 25px auto;
+  color: #000;
+  text-decoration: none;
+  font-size: large;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  zoom: 0.8;
+
+  img {
+    margin-bottom: 15px;
+    width: 30px;
+  }
 }
